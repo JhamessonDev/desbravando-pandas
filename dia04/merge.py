@@ -16,9 +16,9 @@ df_user
 # %%
 
 data_transacoes = {
-    'id_user': [1, 1, 1, 2, 3, 3],
-    'vl': [432, 532, 123, 6, 4, 87],
-    'qtde_produto': [2, 1, 3, 6, 10, 2]
+    'id_user': [1, 1, 1, 2, 3, 3, 5],
+    'vl': [432, 532, 123, 6, 4, 87, 10],
+    'qtde_produto': [2, 1, 3, 6, 10, 2, 7]
 }
 
 df_transacao = pd.DataFrame(data_transacoes)
@@ -29,7 +29,7 @@ df_transacao
 df_transacao.merge(df_user,
                    how='left',
                    left_on=['id_user'],
-                   right_on=['id'],                   
+                   right_on=['id'],
                    )
 
 # %%
@@ -37,13 +37,6 @@ df_transacao.merge(df_user,
 df_transacao.merge(df_user,
                    how='inner',
                    left_on=['id_user'],
-                   right_on=['id'],                   
+                   right_on=['id'],
                    )
-
 # %%
-
-df_merge = df_transacao.merge(df_user,
-                   how='left',
-                   left_on=['id_user'],
-                   right_on=['id'],)
-df_merge[df_merge['nome'].isna()]
